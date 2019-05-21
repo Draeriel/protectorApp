@@ -1,0 +1,18 @@
+.main-header {
+    background-color: #26D800;
+    margin: auto;
+    height: 150px;
+}
+h1 {margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+.subheader {
+    background-color: rgb(38, 201, 2) !important;
+    border-bottom: 3px solid !important;
+    border-color: #00a32b !important;
+    text-align: right;
+}
+a {
+    margin-right: 15px;
+}

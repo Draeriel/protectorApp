@@ -1,0 +1,10 @@
+<form [formGroup]="publicationForm" class="form-group container" style="background-color: whitesmoke">
+    <mat-form-field class="row" style="width: 500px">
+        <textarea matInput placeholder="texto de la publicación" formControlName="description"
+        rows="5" class="main-border"></textarea>
+      </mat-form-field>
+
+      <input type='file' (change)="uploadFile($event)">
+  <button type="submit" (click)="publicate()" class="btn main-button">Publicar</button>
+
+  </form>

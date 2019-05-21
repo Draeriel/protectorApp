@@ -1,0 +1,10 @@
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+    <h4 [routerLink]="['perfil-protectora/']">Editar perfil</h4>
+    <h4 [routerLink]="['perfil/', userId]">Ver perfil</h4>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    background-color: #DBDBDB;
+}
+.inner-title {
+    border-bottom: 1px black solid;
+}
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+    border-color: lightseagreen
+}
+.btn-google {
+    background-color: #ff6702;
+    color: #fff;
+    border-color: #ff4412
+}
+.main-button {
+    background: #26D800;
+    border-color: #00a32b;
+    color: #fff;
+}
+.top {
+    margin-top: 5vh;
+}
+.main-border {
+    border: 2px solid !important;
+    border-color: #00a32b !important;
+}
+.row {
+    margin-left: 20px;
+    margin-right: 20px; 
+}
