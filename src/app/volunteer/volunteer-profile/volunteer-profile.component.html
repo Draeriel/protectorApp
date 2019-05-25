@@ -1,5 +1,6 @@
 <form [formGroup]="userForm" class="form-group container" style="background-color: whitesmoke">
-  <h1>Perfil de la protectora</h1>
+  <h1>Perfil del voluntario</h1>
+  <img [src]="[profileImage]" class="row avatar" />
   <h3 class="inner-title">Información sobre el usuario</h3>
   <div class="row">
     <mat-form-field class="col-md-6 col-md-offset-3">
@@ -46,4 +47,6 @@
   </mat-form-field>
 
   <button type="submit" (click)="updateProtectoraProfile()" class="btn main-button">Guardar datos</button>
+
+  <input type='file' (change)="uploadFile($event)">
 </form>

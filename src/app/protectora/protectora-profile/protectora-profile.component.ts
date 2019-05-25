@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from '../../services/firebase.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from '../../core/user.model';
+import { AngularFireStorage } from "@angular/fire/storage";
 
 
 @Component({
@@ -15,9 +16,14 @@ export class ProtectoraProfileComponent implements OnInit {
   user: User;
   userForm: FormGroup;
   ambits = ['Perros', 'Gatos', 'Roedores', 'Fauna silvestre', 'Animales marinos', 'Reptiles', 'Aves', 'Otros'];
+  file = '';
+  filePath = '';
+  profileImage = '';
   constructor(private formBuilder: FormBuilder,
               private firebaseService: FirebaseService,
-              public afAuth: AngularFireAuth) {
+              public afAuth: AngularFireAuth,
+    private storage: AngularFireStorage,
+    ) {
     this.createForm();
   }
 
@@ -27,6 +33,10 @@ export class ProtectoraProfileComponent implements OnInit {
       this.user = user;
       this.updateForm();
     });
+    this.storage.storage.ref(`images/${this.userId}/profile-${this.userId}`).getDownloadURL().then( img => {
+      console.log(img);
+      this.profileImage = img;
+        });
   }
 
   createForm() {
@@ -72,6 +82,19 @@ export class ProtectoraProfileComponent implements OnInit {
   }
 
   updateProtectoraProfile() {
+    this.setAvatar();
     this.firebaseService.updateUser(this.userId, this.userForm.value);
+  }
+
+  setAvatar() {
+    if (this.file) {
+      this.filePath = `images/${this.userId}/profile-${this.userId}`;
+      this.storage.upload(this.filePath, this.file).then( () => {this.file = "";
+      this.filePath = ""});
+    }
+  }
+
+  uploadFile(event) {
+    this.file = event.target.files[0];
   }
 }
