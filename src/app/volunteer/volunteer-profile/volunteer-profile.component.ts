@@ -2,19 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from '../../services/firebase.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { User } from '../../core/user.model';
+import { Volunteer } from '../../core/user.model';
 
 
 @Component({
-  selector: 'app-protectora-profile',
-  templateUrl: './protectora-profile.component.html',
-  styleUrls: ['./protectora-profile.component.css']
+  selector: 'app-volunteer-profile',
+  templateUrl: './volunteer-profile.component.html',
+  styleUrls: ['./volunteer-profile.component.css']
 })
-export class ProtectoraProfileComponent implements OnInit {
+export class VolunteerProfileComponent implements OnInit {
   userId = '';
-  user: User;
+  user: Volunteer;
   userForm: FormGroup;
-  ambits = ['Perros', 'Gatos', 'Roedores', 'Fauna silvestre', 'Animales marinos', 'Reptiles', 'Aves', 'Otros'];
+  helpingMethods = ['Busco adoptar un animal',
+                    'Quiero ayudar trabajando en una protectora',
+                    'Quiero ayudar económicamente a una protectora',
+                    'Tengo coche y puedo ayudar transportando animales',
+                    'Tengo una jaula y la ofrezco para ayudar a capturar',
+                    'Me ofrezco como casa de acogida',
+                    'Otros'
+                    ];
   constructor(private formBuilder: FormBuilder,
               private firebaseService: FirebaseService,
               public afAuth: AngularFireAuth) {
@@ -31,43 +38,36 @@ export class ProtectoraProfileComponent implements OnInit {
 
   createForm() {
     this.userForm = this.formBuilder.group({
-      protectoraName: ['', Validators.required],
-      protectoraAmbit: [['']],
-      volunteerAmount: [''],
+      name: ['', Validators.required],
+      surname: [['']],
 
       country: [''],
       province: [''],
       location: [''],
       address: [''],
 
-      responsableName: [''],
       contactEmail: [''],
       contactPhone: [''],
-      web: [''],
-      contactTime: [''],
-      visitTime: [''],
 
-      type: ['protector']
+      helpingMethods: [['']],
+
+      type: ['volunteer']
     });
   }
 
   updateForm() {
     this.userForm.patchValue({
-      protectoraName: this.user.protectoraName,
-      protectoraAmbit: this.user.protectoraAmbit,
-      volunteerAmount: this.user.volunteerAmount,
+      name: this.user.name,
+      surname: this.user.surname,
 
       country: this.user.country,
       province: this.user.province,
       location: this.user.location,
       address: this.user.address,
 
-      responsableName: this.user.responsableName,
       contactEmail: this.user.contactEmail,
       contactPhone: this.user.contactPhone,
-      web: this.user.web,
-      contactTime: this.user.contactTime,
-      visitTime: this.user.visitTime
+      helpingMethods: this.user.helpingMethods
     });
   }
 

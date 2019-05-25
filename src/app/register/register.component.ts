@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Router, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-register',
@@ -13,11 +14,14 @@ export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage = '';
   successMessage = '';
+  types = [{id: 'volunteer', viewValue: 'Voluntario', checked: true},
+            {id: 'protector', viewValue: 'Protectora', checked: false}];
 
   constructor(
     public authService: AuthService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private firebaseService: FirebaseService
   ) {
     this.createForm();
    }
@@ -26,13 +30,15 @@ export class RegisterComponent {
      this.registerForm = this.fb.group({
        email: ['', Validators.required ],
        password: ['', Validators.required],
+       type: ['volunteer']
      });
    }
 
    tryFacebookLogin() {
      this.authService.doFacebookLogin()
      .then(res => {
-       this.router.navigate(['/user']);
+      this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
+       this.router.navigate(['/protectora/perfil-protectora']);
      }, err => console.log(err)
      );
    }
@@ -40,7 +46,8 @@ export class RegisterComponent {
    tryGoogleLogin() {
      this.authService.doGoogleLogin()
      .then(res => {
-       this.router.navigate(['/user']);
+      this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
+       this.router.navigate(['/protectora/perfil-protectora']);
      }, err => console.log(err)
      );
    }
@@ -48,9 +55,10 @@ export class RegisterComponent {
    tryRegister(value) {
      this.authService.doRegister(value)
      .then(res => {
-       console.log(res);
        this.errorMessage = '';
        this.successMessage = 'Cuenta creada con éxito';
+       this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
+       this.router.navigate(['/protectora/perfil-protectora']);
      }, err => {
        console.log(err);
        this.errorMessage = 'No se ha podido crear la cuenta';

@@ -14,6 +14,10 @@
           <label class="error">{{errorMessage}}</label>
           <label class="success">{{successMessage}}</label>
         </div>
+        <mat-radio-group aria-label="Tipo de usuario" formControlName="type">
+          <mat-radio-button value="volunteer" checked="true">Voluntario</mat-radio-button>
+          <mat-radio-button value="protector">Protectora</mat-radio-button>
+        </mat-radio-group>
         <button type="submit" (click)="tryRegister(registerForm.value)" class="btn main-button">Registrar</button>
       </form>
     </div>

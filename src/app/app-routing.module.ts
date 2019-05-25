@@ -5,12 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { UserResolver } from './user/user.resolver';
+import { VolunteerResolver } from './user/volunteer.resolver';
 import { AuthGuard } from './core/auth.guard';
 import { AccessComponent } from './access/access.component';
 import { ProtectoraProfileComponent } from './protectora/protectora-profile/protectora-profile.component';
 import { ProtectoraCreatePublicationComponent } from './protectora/protectora-create-publication/protectora-create-publication.component';
 import { ProtectoraPublicProfileComponent } from './protectora/protectora-public-profile/protectora-public-profile.component';
 import { ProtectoraSidenavComponent } from './protectora/protectora-sidenav/protectora-sidenav.component';
+import { VolunteerProfileComponent } from './volunteer/volunteer-profile/volunteer-profile.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'access', pathMatch: 'full' },
@@ -22,7 +25,8 @@ const routes: Routes = [
     { path: 'perfil-protectora', component: ProtectoraProfileComponent, resolve: { data: UserResolver}},
     { path: 'nueva-publicacion', component: ProtectoraCreatePublicationComponent, resolve: { data: UserResolver}},
     { path: `perfil/:id`, component: ProtectoraPublicProfileComponent, resolve: { data: UserResolver}},
-  ]}
+  ]},
+  { path: 'voluntario', component: VolunteerProfileComponent, resolve: { data: VolunteerResolver}}
 ];
 
 

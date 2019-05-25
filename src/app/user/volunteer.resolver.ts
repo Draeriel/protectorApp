@@ -6,7 +6,7 @@ import { FirebaseService } from '../services/firebase.service';
 
 
 @Injectable()
-export class UserResolver implements Resolve<FirebaseUserModel> {
+export class VolunteerResolver implements Resolve<FirebaseUserModel> {
 
   constructor(public userService: UserService, private router: Router, 
     private firebaseService: FirebaseService
@@ -25,7 +25,7 @@ export class UserResolver implements Resolve<FirebaseUserModel> {
             type = result.type;
           });
           setTimeout( () => {
-            if (type === 'protector') {
+            if (type === 'volunteer') {
               return resolve(user);
             } else {
               this.router.navigate(['/login']);

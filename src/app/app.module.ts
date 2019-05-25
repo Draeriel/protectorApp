@@ -36,6 +36,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ProtectoraSidenavComponent } from './protectora/protectora-sidenav/protectora-sidenav.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { VolunteerComponent } from './volunteer/volunteer.component';
+import { VolunteerProfileComponent } from './volunteer/volunteer-profile/volunteer-profile.component';
+import { VolunteerResolver } from './user/volunteer.resolver';
+
 
 
 
@@ -53,7 +58,9 @@ import { FooterComponent } from './shared/footer/footer.component';
     ProtectoraCreatePublicationComponent,
     ProtectoraSidenavComponent,
     HeaderComponent,
-    FooterComponent],
+    FooterComponent,
+    VolunteerComponent,
+    VolunteerProfileComponent],
   imports: [
     NgbModule,
     BrowserAnimationsModule,
@@ -62,6 +69,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatSelectModule,
     MatOptionModule,
     MatCheckboxModule,
+    MatRadioModule,
     MatSidenavModule,
     NoopAnimationsModule,
     AngularFontAwesomeModule,
@@ -74,7 +82,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     AngularFireDatabaseModule,
     AngularFireStorageModule
   ],
-  providers: [AuthService, UserService, UserResolver, AuthGuard, FirebaseService],
+  providers: [AuthService, UserService, UserResolver, VolunteerResolver, AuthGuard, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

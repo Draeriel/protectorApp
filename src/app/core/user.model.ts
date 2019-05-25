@@ -26,6 +26,7 @@ export class User {
   web: string;
   contactTime: string;
   visitTime: string;
+  type: string;
 
   constructor() {
     this.protectoraName = '';
@@ -43,5 +44,41 @@ export class User {
     this.web = '';
     this.contactTime = '';
     this.visitTime = '';
+    this.type = 'protector';
+  }
+}
+
+export class Volunteer {
+
+  name: string;
+  surname: string;
+
+  country: string;
+  province: string;
+  location: string;
+  address: string;
+
+  contactEmail: string;
+  contactPhone: string;
+
+  helpingMethods: Array<string>;
+
+  type: string;
+
+  constructor() {
+    this.name = '';
+    this.surname = '';
+
+    this.country = '';
+    this.province = '';
+    this.location = '';
+    this.address = '';
+
+    this.contactEmail = '';
+    this.contactPhone = '';
+
+    this.helpingMethods = [];
+
+    this.type = 'volunteer'
   }
 }
