@@ -38,7 +38,9 @@ export class RegisterComponent {
      this.authService.doFacebookLogin()
      .then(res => {
       this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
-       this.router.navigate(['/protectora/perfil-protectora']);
+      this.registerForm.get('type').value === 'protector' ?
+       this.router.navigate(['/protectora/perfil-protectora']) :
+       this.router.navigate(['/voluntario']);
      }, err => console.log(err)
      );
    }
@@ -47,7 +49,9 @@ export class RegisterComponent {
      this.authService.doGoogleLogin()
      .then(res => {
       this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
-       this.router.navigate(['/protectora/perfil-protectora']);
+      this.registerForm.get('type').value === 'protector' ?
+      this.router.navigate(['/protectora/perfil-protectora']) :
+      this.router.navigate(['/voluntario']);
      }, err => console.log(err)
      );
    }
@@ -58,7 +62,9 @@ export class RegisterComponent {
        this.errorMessage = '';
        this.successMessage = 'Cuenta creada con éxito';
        this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
-       this.router.navigate(['/protectora/perfil-protectora']);
+       this.registerForm.get('type').value === 'protector' ?
+       this.router.navigate(['/protectora/perfil-protectora']) :
+       this.router.navigate(['/voluntario']);
      }, err => {
        console.log(err);
        this.errorMessage = 'No se ha podido crear la cuenta';

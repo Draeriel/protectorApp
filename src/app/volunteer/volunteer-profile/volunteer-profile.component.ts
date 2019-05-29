@@ -41,11 +41,25 @@ export class VolunteerProfileComponent implements OnInit {
     this.firebaseService.getUser(this.userId).subscribe(user => {
       this.user = user;
       this.updateForm();
-    });
-    this.storage.storage.ref(`images/${this.userId}/profile-${this.userId}`).getDownloadURL().then( img => {
-      this.profileImage = img;
+
+      this.storage.storage
+        .ref(`images/${this.userId}/profile-${this.userId}`)
+        .getDownloadURL()
+        .then(img => {
+          console.log(img);
+          this.profileImage = img;
+        }).catch( () => {
+          this.storage.storage
+        .ref(`images/`)
+        .child(`default-${this.user.type}.jpg`)
+        .getDownloadURL()
+        .then(img => {
+          this.profileImage = img;
         });
+        });
+    });
   }
+
 
   createForm() {
     this.userForm = this.formBuilder.group({
