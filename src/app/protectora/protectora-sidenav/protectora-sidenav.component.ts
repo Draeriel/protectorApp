@@ -9,12 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./protectora-sidenav.component.css']
 })
 export class ProtectoraSidenavComponent implements OnInit {
-  userId = '';
-  options: FormGroup;
 
   constructor(fb: FormBuilder,
-    public afAuth: AngularFireAuth,
-    private router: Router
+              public afAuth: AngularFireAuth,
+              private router: Router
     ) {
     this.options = fb.group({
       bottom: 0,
@@ -22,12 +20,14 @@ export class ProtectoraSidenavComponent implements OnInit {
       top: 0
     });
   }
+  userId = '';
+  options: FormGroup;
+
+  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
   ngOnInit() {
     this.userId = this.afAuth.auth.currentUser.uid;
   }
-
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
   navigateTo(path, param?) {
     this.router.navigate([`/${path}/`, param]);

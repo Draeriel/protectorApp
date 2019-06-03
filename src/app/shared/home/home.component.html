@@ -1,0 +1,18 @@
+<div *ngFor="let publication of publications" class="form-group container publication"
+  style="background-color: whitesmoke">
+
+  <div class="row top">
+
+    <div class="col-3 top">
+      <a [routerLink]="['/protectora/perfil/'] + publication.userId">
+      <img class="avatar" [src]="publication.avatar" />
+      <h4>{{publication.user.protectoraName ? publication.user.protectoraName : 'Sin nombre'}}</h4>
+    </a>
+    </div>
+
+    <div class="col-9 top">{{publication.description}}
+      <img [src]="publication.image" class="row publication-image" />
+    </div>
+  </div>
+
+</div>

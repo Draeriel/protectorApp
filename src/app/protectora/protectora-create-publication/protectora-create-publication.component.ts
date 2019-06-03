@@ -1,20 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { FirebaseService } from "../../services/firebase.service";
-import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFireStorage } from "@angular/fire/storage";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from '../../services/firebase.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
-  selector: "app-protectora-create-publication",
-  templateUrl: "./protectora-create-publication.component.html",
-  styleUrls: ["./protectora-create-publication.component.css"]
+  selector: 'app-protectora-create-publication',
+  templateUrl: './protectora-create-publication.component.html',
+  styleUrls: ['./protectora-create-publication.component.css']
 })
 export class ProtectoraCreatePublicationComponent implements OnInit {
-  userId = "";
+  userId = '';
   publicationForm: FormGroup;
-  file = "";
-  filePath = "";
+  file = '';
+  filePath = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,7 +32,7 @@ export class ProtectoraCreatePublicationComponent implements OnInit {
 
   createForm() {
     this.publicationForm = this.formBuilder.group({
-      description: [""],
+      description: [''],
       image: ['']
     });
   }

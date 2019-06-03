@@ -1,32 +1,32 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { FirebaseService } from "../../services/firebase.service";
-import { AngularFireAuth } from "angularfire2/auth";
-import { User } from "../../core/user.model";
-import { AngularFireStorage } from "@angular/fire/storage";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from '../../services/firebase.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from '../../core/user.model';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
-  selector: "app-protectora-profile",
-  templateUrl: "./protectora-profile.component.html",
-  styleUrls: ["./protectora-profile.component.css"]
+  selector: 'app-protectora-profile',
+  templateUrl: './protectora-profile.component.html',
+  styleUrls: ['./protectora-profile.component.css']
 })
 export class ProtectoraProfileComponent implements OnInit {
-  userId = "";
+  userId = '';
   user: User;
   userForm: FormGroup;
   ambits = [
-    "Perros",
-    "Gatos",
-    "Roedores",
-    "Fauna silvestre",
-    "Animales marinos",
-    "Reptiles",
-    "Aves",
-    "Otros"
+    'Perros',
+    'Gatos',
+    'Roedores',
+    'Fauna silvestre',
+    'Animales marinos',
+    'Reptiles',
+    'Aves',
+    'Otros'
   ];
-  file = "";
-  filePath = "";
-  profileImage = "";
+  file = '';
+  filePath = '';
+  profileImage = '';
   constructor(
     private formBuilder: FormBuilder,
     private firebaseService: FirebaseService,
@@ -62,23 +62,23 @@ export class ProtectoraProfileComponent implements OnInit {
 
   createForm() {
     this.userForm = this.formBuilder.group({
-      protectoraName: ["", Validators.required],
-      protectoraAmbit: [[""]],
-      volunteerAmount: [""],
+      protectoraName: ['', Validators.required],
+      protectoraAmbit: [['']],
+      volunteerAmount: [''],
 
-      country: [""],
-      province: [""],
-      location: [""],
-      address: [""],
+      country: [''],
+      province: [''],
+      location: [''],
+      address: [''],
 
-      responsableName: [""],
-      contactEmail: [""],
-      contactPhone: [""],
-      web: [""],
-      contactTime: [""],
-      visitTime: [""],
+      responsableName: [''],
+      contactEmail: [''],
+      contactPhone: [''],
+      web: [''],
+      contactTime: [''],
+      visitTime: [''],
 
-      type: ["protector"]
+      type: ['protector']
     });
   }
 
@@ -111,8 +111,8 @@ export class ProtectoraProfileComponent implements OnInit {
     if (this.file) {
       this.filePath = `images/${this.userId}/profile-${this.userId}`;
       this.storage.upload(this.filePath, this.file).then(() => {
-        this.file = "";
-        this.filePath = "";
+        this.file = '';
+        this.filePath = '';
       });
     }
   }

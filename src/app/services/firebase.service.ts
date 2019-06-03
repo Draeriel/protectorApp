@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class FirebaseService {
 
   constructor(public db: AngularFirestore,
-    public db2: AngularFireDatabase) {}
+              public db2: AngularFireDatabase) {}
 
   getAvatars() {
       return this.db.collection('/avatar').valueChanges();
@@ -28,8 +28,8 @@ export class FirebaseService {
     return this.db.collection('users').doc(userKey).delete();
   }
 
-  getUsers() {
-    return this.db.collection('users').snapshotChanges();
+  getProtectors() {
+    return this.db.collection('users', ref => ref.where('type', '==', 'protector')).valueChanges();
   }
 
   searchUsers(searchValue) {
@@ -52,6 +52,13 @@ export class FirebaseService {
   }
 
   publicateComment(userKey, value, publicationId) {
-      return this.db.collection(`users`).doc(userKey).collection('publications').doc(publicationId).set(value);
+    const publicationData = value;
+    publicationData['userId'] = userKey;
+    this.db.collection('publications').doc(publicationId).set(publicationData);
+    return this.db.collection(`users`).doc(userKey).collection('publications').doc(publicationId).set(value);
+  }
+
+  getProtectorsPublications() {
+    return this.db.collection('publications').valueChanges();
   }
 }

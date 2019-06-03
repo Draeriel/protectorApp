@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-available-schedule",
-  templateUrl: "./available-schedule.component.html",
-  styleUrls: ["./available-schedule.component.css"]
+  selector: 'app-available-schedule',
+  templateUrl: './available-schedule.component.html',
+  styleUrls: ['./available-schedule.component.css']
 })
 export class AvailableScheduleComponent implements OnInit {
   days = [
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado",
-    "Domingo"
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+    'Domingo'
   ];
   hours = [];
   maxHours = 23;
@@ -33,10 +33,10 @@ export class AvailableScheduleComponent implements OnInit {
     }
   }
   formatTime(value) {
-    return value < 10 ? "0" + value.toString() : value.toString();
+    return value < 10 ? '0' + value.toString() : value.toString();
   }
 
-  //updateServiceTime(event) {
+  // updateServiceTime(event) {
   //  this.split = event.checked;
-  //}
+  // }
 }

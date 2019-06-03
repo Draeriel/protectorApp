@@ -13,11 +13,13 @@ import { ProtectoraCreatePublicationComponent } from './protectora/protectora-cr
 import { ProtectoraPublicProfileComponent } from './protectora/protectora-public-profile/protectora-public-profile.component';
 import { ProtectoraSidenavComponent } from './protectora/protectora-sidenav/protectora-sidenav.component';
 import { VolunteerProfileComponent } from './volunteer/volunteer-profile/volunteer-profile.component';
+import { HomeComponent } from './shared/home/home.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'access', pathMatch: 'full' },
   { path: 'access', component: AccessComponent, canActivate: [AuthGuard] },
+  { path: 'inicio', component: HomeComponent},
   // { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   // { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'protectora', component: ProtectoraSidenavComponent, resolve: { data: UserResolver}, children: [

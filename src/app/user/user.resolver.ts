@@ -8,8 +8,8 @@ import { FirebaseService } from '../services/firebase.service';
 @Injectable()
 export class UserResolver implements Resolve<FirebaseUserModel> {
 
-  constructor(public userService: UserService, private router: Router, 
-    private firebaseService: FirebaseService
+  constructor(public userService: UserService, private router: Router,
+              private firebaseService: FirebaseService
     ) { }
 
   resolve(route: ActivatedRouteSnapshot): Promise<FirebaseUserModel> {

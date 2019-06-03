@@ -1,6 +1,18 @@
   <app-protectora-create-publication></app-protectora-create-publication>
-  <div *ngFor="let publication of publications" class="form-group container publication" 
-      style="background-color: whitesmoke">
-      <div class="row">{{publication.description}}</div>
-      <img [src]="publication.image" class="row publication-image" />
+  <div *ngFor="let publication of publications" class="form-group container publication"
+    style="background-color: whitesmoke">
+
+    <div class="row">
+        
+      <div class="top col-3">
+        <img class="avatar" [src]="user.avatar" />
+        <h4>{{user.protectoraName}}</h4>
+      </div>
+
+      <div class="col-9">
+        <div>{{publication.description}}</div>
+        <img [src]="publication.image" class="row publication-image" />
+      </div>
+
+    </div>
   </div>

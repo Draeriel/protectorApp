@@ -40,6 +40,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { VolunteerProfileComponent } from './volunteer/volunteer-profile/volunteer-profile.component';
 import { VolunteerResolver } from './user/volunteer.resolver';
+import { HomeComponent } from './shared/home/home.component';
 
 
 
@@ -60,7 +61,8 @@ import { VolunteerResolver } from './user/volunteer.resolver';
     HeaderComponent,
     FooterComponent,
     VolunteerComponent,
-    VolunteerProfileComponent],
+    VolunteerProfileComponent,
+    HomeComponent],
   imports: [
     NgbModule,
     BrowserAnimationsModule,

@@ -1,8 +1,9 @@
 .publication-image {
-    max-width: 600px;
-    max-height: 350px;
-}
-.publication {
-    width: 60%;
+    width: 80%;
     height: auto;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
 }

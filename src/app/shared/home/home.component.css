@@ -1,0 +1,11 @@
+.avatar {
+    width: 150px;
+    height: 150px;
+}
+.top {
+    margin-top: 10px;
+}
+.publication-image {
+    width: 80%;
+    height: auto;
+}

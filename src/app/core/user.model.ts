@@ -79,6 +79,6 @@ export class Volunteer {
 
     this.helpingMethods = [];
 
-    this.type = 'volunteer'
+    this.type = 'volunteer';
   }
 }
