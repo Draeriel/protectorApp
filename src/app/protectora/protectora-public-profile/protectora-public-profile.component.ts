@@ -16,15 +16,18 @@ export class ProtectoraPublicProfileComponent implements OnInit {
   publications = [];
   profileId = '';
   user = {};
+  isProfileOwner: boolean;
   constructor(private firebaseService: FirebaseService,
               public afAuth: AngularFireAuth,
               private route: ActivatedRoute,
               public storage: AngularFireStorage) { }
 
   ngOnInit() {
-    this.userId = this.afAuth.auth.currentUser.uid;
+    console.log(this.afAuth.auth);
+    this.userId = this.afAuth.auth.currentUser ? this.afAuth.auth.currentUser.uid : this.afAuth.auth.O;
     this.route.params.subscribe(param => {
       this.profileId = param.id;
+      this.isProfileOwner = this.userId === this.profileId;
       this.getUserPublications();
       this.getUser();
     });

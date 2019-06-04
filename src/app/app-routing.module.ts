@@ -24,10 +24,12 @@ const routes: Routes = [
   // { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'protectora', component: ProtectoraSidenavComponent, resolve: { data: UserResolver}, children: [
     //{ path: 'user', component: UserComponent, resolve: { data: UserResolver}},
+    { path: 'inicio', component: HomeComponent, resolve: { data: UserResolver}},
     { path: 'perfil-protectora', component: ProtectoraProfileComponent, resolve: { data: UserResolver}},
     { path: 'nueva-publicacion', component: ProtectoraCreatePublicationComponent, resolve: { data: UserResolver}},
     { path: `perfil/:id`, component: ProtectoraPublicProfileComponent, resolve: { data: UserResolver}},
   ]},
+  { path: `perfil/:id`, component: ProtectoraPublicProfileComponent},
   { path: 'voluntario', component: VolunteerProfileComponent, resolve: { data: VolunteerResolver}}
 ];
 

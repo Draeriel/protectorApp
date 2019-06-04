@@ -28,8 +28,4 @@ export class ProtectoraSidenavComponent implements OnInit {
   ngOnInit() {
     this.userId = this.afAuth.auth.currentUser.uid;
   }
-
-  navigateTo(path, param?) {
-    this.router.navigate([`/${path}/`, param]);
-  }
 }

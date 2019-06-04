@@ -60,8 +60,4 @@ export class HomeComponent implements OnInit {
         });
         });
   }
-
-  goToprofile(userId) {
-    this.router.navigate([`/protectora/perfil-publico`]);
-  }
 }

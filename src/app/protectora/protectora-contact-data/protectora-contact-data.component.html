@@ -1,0 +1,16 @@
+<div class="form-group container publication" style="background-color: whitesmoke">
+<div class="row" *ngIf="user">
+
+  <div class="row top">
+    <img class="avatar" [src]="user.avatar" />
+    <h1>{{user.protectoraName}}</h1>
+  </div>
+
+  <div class="row top">
+    <span><strong>Dirección: </strong>{{formatedAddress()}}</span>
+    <span><strong>Teléfono: </strong>{{user.contactPhone}}</span>
+    <span><strong>E-mail: </strong>{{user.contactEmail}}</span>
+  </div>
+
+</div>
+</div>

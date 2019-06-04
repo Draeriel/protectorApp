@@ -4,7 +4,7 @@
   <div class="row top">
 
     <div class="col-3 top">
-      <a [routerLink]="['/protectora/perfil/'] + publication.userId">
+      <a [routerLink]="['/perfil/'] + publication.userId">
       <img class="avatar" [src]="publication.avatar" />
       <h4>{{publication.user.protectoraName ? publication.user.protectoraName : 'Sin nombre'}}</h4>
     </a>
