@@ -37,7 +37,9 @@ export class RegisterComponent {
    tryFacebookLogin() {
      this.authService.doFacebookLogin()
      .then(res => {
-      this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
+      this.firebaseService.updateUser(res.user.uid, {
+        type: this.registerForm.get('type').value,
+        id: res.user.uid});
       this.registerForm.get('type').value === 'protector' ?
        this.router.navigate(['/protectora/perfil-protectora']) :
        this.router.navigate(['/voluntario']);
@@ -48,7 +50,9 @@ export class RegisterComponent {
    tryGoogleLogin() {
      this.authService.doGoogleLogin()
      .then(res => {
-      this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
+      this.firebaseService.updateUser(res.user.uid, {
+        type: this.registerForm.get('type').value,
+        id: res.user.uid});
       this.registerForm.get('type').value === 'protector' ?
       this.router.navigate(['/protectora/perfil-protectora']) :
       this.router.navigate(['/voluntario']);
@@ -61,7 +65,9 @@ export class RegisterComponent {
      .then(res => {
        this.errorMessage = '';
        this.successMessage = 'Cuenta creada con éxito';
-       this.firebaseService.updateUser(res.user.uid, {type: this.registerForm.get('type').value});
+       this.firebaseService.updateUser(res.user.uid, {
+         type: this.registerForm.get('type').value,
+         id: res.user.uid});
        this.registerForm.get('type').value === 'protector' ?
        this.router.navigate(['/protectora/perfil-protectora']) :
        this.router.navigate(['/voluntario']);

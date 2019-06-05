@@ -19,15 +19,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.firebaseService.getProtectorsPublications().subscribe(publications => {
       publications.forEach(publication => {
-        this.firebaseService.getUser(publication.userId).subscribe( user => {
-        this.storage.storage.ref(publication.image).getDownloadURL().then( img => {
+        this.firebaseService.getUser(publication['userId']).subscribe( user => {
+        this.storage.storage.ref(publication['image']).getDownloadURL().then( img => {
             const currentPublication = {
-              description: publication.description,
+              description: publication['description'],
               image: img,
-              userId: publication.userId,
+              userId: publication['userId'],
               user: user,
             };
-           this.setAvatar(publication.userId, currentPublication);
+           this.setAvatar(publication['userId'], currentPublication);
           })
         });
       });

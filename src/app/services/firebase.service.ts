@@ -32,6 +32,10 @@ export class FirebaseService {
     return this.db.collection('users', ref => ref.where('type', '==', 'protector')).valueChanges();
   }
 
+  getVolunteers() {
+    return this.db.collection('users', ref => ref.where('type', '==', 'volunteer')).valueChanges();
+  }
+
   searchUsers(searchValue) {
     return this.db.collection('users', ref => ref.where('nameToSearch', '>=', searchValue)
       .where('nameToSearch', '<=', searchValue + '\uf8ff'))

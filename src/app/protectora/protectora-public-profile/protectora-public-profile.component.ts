@@ -24,7 +24,7 @@ export class ProtectoraPublicProfileComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.afAuth.auth);
-    this.userId = this.afAuth.auth.currentUser ? this.afAuth.auth.currentUser.uid : this.afAuth.auth.O;
+    this.userId = this.afAuth.auth.currentUser ? this.afAuth.auth.currentUser.uid : this.afAuth.auth['O'];
     this.route.params.subscribe(param => {
       this.profileId = param.id;
       this.isProfileOwner = this.userId === this.profileId;

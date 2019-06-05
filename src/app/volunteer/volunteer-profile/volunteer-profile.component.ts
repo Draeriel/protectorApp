@@ -98,6 +98,8 @@ export class VolunteerProfileComponent implements OnInit {
 
   updateProtectoraProfile() {
     this.setAvatar();
+    const updateUser = this.userForm.value;
+    updateUser['id'] = this.userId;
     this.firebaseService.updateUser(this.userId, this.userForm.value);
   }
 

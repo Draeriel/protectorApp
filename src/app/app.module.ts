@@ -42,6 +42,7 @@ import { VolunteerProfileComponent } from './volunteer/volunteer-profile/volunte
 import { VolunteerResolver } from './user/volunteer.resolver';
 import { HomeComponent } from './shared/home/home.component';
 import { ProtectoraContactDataComponent } from './protectora/protectora-contact-data/protectora-contact-data.component';
+import { ProtectoraVolunteersComponent } from './protectora/protectora-volunteers/protectora-volunteers.component';
 
 
 
@@ -64,7 +65,8 @@ import { ProtectoraContactDataComponent } from './protectora/protectora-contact-
     VolunteerComponent,
     VolunteerProfileComponent,
     HomeComponent,
-    ProtectoraContactDataComponent],
+    ProtectoraContactDataComponent,
+    ProtectoraVolunteersComponent],
   imports: [
     NgbModule,
     BrowserAnimationsModule,

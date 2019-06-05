@@ -1,0 +1,22 @@
+<div class="form-group container publication" style="background-color: whitesmoke">
+  <div class="row" *ngFor="let volunteer of volunteers">
+  
+    <ng-container *ngIf="volunteer.avatar">
+    <div class="col-3 top">
+      <img class="avatar" [src]="volunteer.avatar" />
+      <h5>{{volunteer.name}} {{volunteer.surname}}</h5>
+    </div>
+  
+    <div class="col-9 top">
+      <span class="row"><strong>Dirección: </strong>{{formatedAddress(volunteer)}}</span>
+      <span class="row"><strong>Teléfono: </strong>{{volunteer.contactPhone}}</span>
+      <span class="row"><strong>E-mail: </strong>{{volunteer.contactEmail}}</span>
+      <div class="row"><strong>Métodos de ayuda: </strong>
+        <div class="row" *ngFor="let method of volunteer.helpingMethods">
+          -{{method}}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  </div>
+  </div>
