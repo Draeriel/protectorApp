@@ -33,7 +33,8 @@ export class ProtectoraCreatePublicationComponent implements OnInit {
   createForm() {
     this.publicationForm = this.formBuilder.group({
       description: [''],
-      image: ['']
+      image: [''],
+      id: [''],
     });
   }
   publicate() {
@@ -43,9 +44,12 @@ export class ProtectoraCreatePublicationComponent implements OnInit {
       this.storage.upload(this.filePath, this.file);
       this.publicationForm.get('image').setValue(`/images/${this.userId}/${publicationId}`);
     }
+    const currentPublication = this.publicationForm.value;
+    currentPublication['id'] = publicationId;
+    currentPublication['userId'] = this.userId
     this.firebaseService.publicateComment(
       this.userId,
-      this.publicationForm.value,
+      currentPublication,
       publicationId
     ).then(() => {
       this.createForm();

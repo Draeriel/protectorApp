@@ -52,14 +52,12 @@ export class FirebaseService {
   }
 
  getCommentsByUser(userKey) {
-  return this.db.collection('users').doc(userKey).collection('publications').valueChanges();
+  return this.db.collection('publications', ref => ref.where('userId', '==', userKey)).valueChanges();
   }
 
   publicateComment(userKey, value, publicationId) {
-    const publicationData = value;
-    publicationData['userId'] = userKey;
-    this.db.collection('publications').doc(publicationId).set(publicationData);
-    return this.db.collection(`users`).doc(userKey).collection('publications').doc(publicationId).set(value);
+    return this.db.collection('publications').doc(publicationId).set(value);
+    // return this.db.collection(`users`).doc(userKey).collection('publications').doc(publicationId).set(value);
   }
 
   getProtectorsPublications() {
