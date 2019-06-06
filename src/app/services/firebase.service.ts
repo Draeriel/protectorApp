@@ -60,7 +60,15 @@ export class FirebaseService {
     // return this.db.collection(`users`).doc(userKey).collection('publications').doc(publicationId).set(value);
   }
 
+  postPublicationComment(value, publicationId, commentId) {
+    return this.db.collection('publications').doc(publicationId).collection('comments').doc(commentId).set(value);
+  }
+
   getProtectorsPublications() {
     return this.db.collection('publications').valueChanges();
+  }
+
+  getPublicationsComments(publicationId) {
+    return this.db.collection('publications').doc(publicationId).collection('comments').valueChanges();
   }
 }

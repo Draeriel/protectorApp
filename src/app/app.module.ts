@@ -43,6 +43,7 @@ import { VolunteerResolver } from './user/volunteer.resolver';
 import { HomeComponent } from './shared/home/home.component';
 import { ProtectoraContactDataComponent } from './protectora/protectora-contact-data/protectora-contact-data.component';
 import { ProtectoraVolunteersComponent } from './protectora/protectora-volunteers/protectora-volunteers.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 
@@ -66,7 +67,8 @@ import { ProtectoraVolunteersComponent } from './protectora/protectora-volunteer
     VolunteerProfileComponent,
     HomeComponent,
     ProtectoraContactDataComponent,
-    ProtectoraVolunteersComponent],
+    ProtectoraVolunteersComponent,
+    CommentsComponent],
   imports: [
     NgbModule,
     BrowserAnimationsModule,

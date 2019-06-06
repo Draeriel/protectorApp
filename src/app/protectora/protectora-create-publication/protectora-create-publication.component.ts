@@ -34,7 +34,6 @@ export class ProtectoraCreatePublicationComponent implements OnInit {
     this.publicationForm = this.formBuilder.group({
       description: [''],
       image: [''],
-      id: [''],
     });
   }
   publicate() {

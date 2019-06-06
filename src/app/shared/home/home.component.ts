@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
               image: img,
               userId: publication['userId'],
               user: user,
+              id: publication['id']
             };
            this.setAvatar(publication['userId'], currentPublication);
           })

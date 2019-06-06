@@ -11,8 +11,10 @@
     </div>
 
     <div class="col-9 top">{{publication.description}}
-      <img [src]="publication.image" class="row publication-image" />
+      <img [src]="publication.image" class="row publication-image col-12" />
+      <app-comments [publicationId]="publication.id" class="col-12"></app-comments>
     </div>
+    
   </div>
 
 </div>
