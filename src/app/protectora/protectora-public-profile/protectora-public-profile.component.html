@@ -13,7 +13,8 @@
       <div class="col-9 image-container">
         <div>{{publication.description}}</div>
         <img [src]="publication.image" class="row publication-image" />
+        <app-comments [publicationId]="publication.id"></app-comments>
       </div>
-
+      
     </div>
   </div>

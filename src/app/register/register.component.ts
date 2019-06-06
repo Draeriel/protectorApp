@@ -42,7 +42,7 @@ export class RegisterComponent {
         id: res.user.uid});
       this.registerForm.get('type').value === 'protector' ?
        this.router.navigate(['/protectora/perfil-protectora']) :
-       this.router.navigate(['/voluntario']);
+       this.router.navigate(['/voluntario/perfil-voluntario']);
      }, err => console.log(err)
      );
    }
@@ -55,7 +55,7 @@ export class RegisterComponent {
         id: res.user.uid});
       this.registerForm.get('type').value === 'protector' ?
       this.router.navigate(['/protectora/perfil-protectora']) :
-      this.router.navigate(['/voluntario']);
+      this.router.navigate(['/voluntario/perfil-voluntario']);
      }, err => console.log(err)
      );
    }
@@ -70,7 +70,7 @@ export class RegisterComponent {
          id: res.user.uid});
        this.registerForm.get('type').value === 'protector' ?
        this.router.navigate(['/protectora/perfil-protectora']) :
-       this.router.navigate(['/voluntario']);
+       this.router.navigate(['/voluntario/perfil-voluntario']);
      }, err => {
        console.log(err);
        this.errorMessage = 'No se ha podido crear la cuenta';

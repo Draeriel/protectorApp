@@ -15,12 +15,15 @@ import { ProtectoraSidenavComponent } from './protectora/protectora-sidenav/prot
 import { VolunteerProfileComponent } from './volunteer/volunteer-profile/volunteer-profile.component';
 import { HomeComponent } from './shared/home/home.component';
 import { ProtectoraVolunteersComponent } from './protectora/protectora-volunteers/protectora-volunteers.component';
+import { VolunteerSidenavComponent } from './volunteer/volunteer-sidenav/volunteer-sidenav.component';
+import { VolunteerProtectorasComponent } from './volunteer/volunteer-protectoras/volunteer-protectoras.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'access', pathMatch: 'full' },
   { path: 'access', component: AccessComponent, canActivate: [AuthGuard] },
   { path: 'inicio', component: HomeComponent},
+  { path: `perfil/:id`, component: ProtectoraPublicProfileComponent},
   // { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   // { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'protectora', component: ProtectoraSidenavComponent, resolve: { data: UserResolver}, children: [
@@ -31,8 +34,11 @@ const routes: Routes = [
     { path: `perfil/:id`, component: ProtectoraPublicProfileComponent, resolve: { data: UserResolver}},
     { path: `voluntarios`, component: ProtectoraVolunteersComponent, resolve: { data: UserResolver}},
   ]},
-  { path: `perfil/:id`, component: ProtectoraPublicProfileComponent},
-  { path: 'voluntario', component: VolunteerProfileComponent, resolve: { data: VolunteerResolver}}
+  { path: 'voluntario', component: VolunteerSidenavComponent, resolve: { data: VolunteerResolver}, children: [
+    { path: 'perfil-voluntario', component: VolunteerProfileComponent, resolve: { data: VolunteerResolver}},
+    { path: 'protectoras', component: VolunteerProtectorasComponent, resolve: { data: VolunteerResolver}},
+    { path: `perfil/:id`, component: ProtectoraPublicProfileComponent, resolve: { data: VolunteerResolver}}
+  ]}
 ];
 
 

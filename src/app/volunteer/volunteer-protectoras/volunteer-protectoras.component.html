@@ -1,0 +1,17 @@
+<div class="form-group container publication" style="background-color: whitesmoke">
+  <div class="row" *ngFor="let protectora of protectoras">
+  
+    <ng-container *ngIf="protectora.avatar">
+    <div class="col-3 top">
+      <img class="avatar" [src]="protectora.avatar" />
+      <h5>{{protectora.name}} {{protectora.surname}}</h5>
+    </div>
+  
+    <div class="col-9 top">
+      <span class="row"><strong>Dirección: </strong>{{formatedAddress(protectora)}}</span>
+      <span class="row"><strong>Teléfono: </strong>{{protectora.contactPhone}}</span>
+      <span class="row"><strong>E-mail: </strong>{{protectora.contactEmail}}</span>
+    </div>
+  </ng-container>
+  </div>
+  </div>

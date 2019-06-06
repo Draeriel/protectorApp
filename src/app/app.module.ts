@@ -44,6 +44,8 @@ import { HomeComponent } from './shared/home/home.component';
 import { ProtectoraContactDataComponent } from './protectora/protectora-contact-data/protectora-contact-data.component';
 import { ProtectoraVolunteersComponent } from './protectora/protectora-volunteers/protectora-volunteers.component';
 import { CommentsComponent } from './comments/comments.component';
+import { VolunteerSidenavComponent } from './volunteer/volunteer-sidenav/volunteer-sidenav.component';
+import { VolunteerProtectorasComponent } from './volunteer/volunteer-protectoras/volunteer-protectoras.component';
 
 
 
@@ -68,7 +70,9 @@ import { CommentsComponent } from './comments/comments.component';
     HomeComponent,
     ProtectoraContactDataComponent,
     ProtectoraVolunteersComponent,
-    CommentsComponent],
+    CommentsComponent,
+    VolunteerSidenavComponent,
+    VolunteerProtectorasComponent],
   imports: [
     NgbModule,
     BrowserAnimationsModule,

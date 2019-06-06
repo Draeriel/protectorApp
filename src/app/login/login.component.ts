@@ -34,7 +34,7 @@ export class LoginComponent {
       this.firebaseService.getUser(res.user.uid).subscribe(user => {
         user.type === 'protector'
         ? this.router.navigate(['/protectora/perfil-protectora'])
-        : this.router.navigate(['/voluntario']);
+        : this.router.navigate(['/voluntario/perfil-voluntario']);
       });
     });
   }
@@ -44,7 +44,7 @@ export class LoginComponent {
       this.firebaseService.getUser(res.user.uid).subscribe(user => {
         user.type === 'protector'
         ? this.router.navigate(['/protectora/perfil-protectora'])
-        : this.router.navigate(['/voluntario']);
+        : this.router.navigate(['/voluntario/perfil-voluntario']);
       });
     });
   }
@@ -55,7 +55,7 @@ export class LoginComponent {
         this.firebaseService.getUser(res.user.uid).subscribe(user => {
         user.type === 'protector'
         ? this.router.navigate(['/protectora/perfil-protectora'])
-        : this.router.navigate(['/voluntario']);
+        : this.router.navigate(['/voluntario/perfil-voluntario']);
       },
       err => {
         console.log(err);
