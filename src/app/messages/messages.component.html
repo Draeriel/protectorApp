@@ -1,9 +1,10 @@
-<h1>Real Time Chat</h1>
+<h1 style="text-align: center">{{otherUser}}</h1>
 <div *ngFor="let message of messages | async">
-  <div *ngIf="message?.userId === userId" style="background-color: blue">{{message.message}}</div>
-  <div *ngIf="message?.userId !== userId" style="background-color: green">{{message.message}}</div>
+  <div class="top" [ngClass]="{'currentUser': message?.userId === userId, 'otherUser': message?.userId !== userId}">
+    {{message.message}} <span class="date">{{formatTimestamp(message.timestamp)}}</span>
+  </div>
 </div>
 
-<input type="text" #message placeholder="Your message..">
+<input type="text" id="message" #message placeholder="Your message..">
 
 <button (click)="newMessage(message)">Send message</button>
