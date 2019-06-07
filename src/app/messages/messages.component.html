@@ -1,10 +1,14 @@
 <h1 style="text-align: center">{{otherUser}}</h1>
-<div *ngFor="let message of messages | async">
+<div class="messageContainer" *ngFor="let message of messages | async">
   <div class="top" [ngClass]="{'currentUser': message?.userId === userId, 'otherUser': message?.userId !== userId}">
-    {{message.message}} <span class="date">{{formatTimestamp(message.timestamp)}}</span>
+    {{message.message}} 
+    <span class="date" 
+      [ngClass]="{'currentUserDate': message?.userId === userId, 'otherUserDate': message?.userId !== userId}">
+      {{formatTimestamp(message.timestamp)}}
+    </span>
   </div>
 </div>
 
-<input type="text" id="message" #message placeholder="Your message..">
+<input type="text" id="message" #message placeholder="Escribe tu mensaje">
 
-<button (click)="newMessage(message)">Send message</button>
+<button (click)="newMessage(message)">Enviar</button>

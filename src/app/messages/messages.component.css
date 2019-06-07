@@ -4,7 +4,7 @@
     padding: 1px;;
     margin-left: 25vw;
     margin-right: 15vw;
-
+    position: relative;
 }
 .otherUser {
     background-color: rgba(3, 248, 3, 0.534);
@@ -12,9 +12,28 @@
     padding: 1px;
     margin-right: 25vw;
     margin-left: 15vw;
-
+    position: relative;
 }
 .top {
     margin-top: 5px;
 }
+.date {
+    background-color: rgb(46, 46, 46);
+    color: white;
+    display: none;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.otherUserDate {
+    float: left;
+    margin-left: -50px;
+}
 
+.currentUserDate {
+    float: right;
+    margin-right: -50px;
+}
+
+.otherUser:hover span, .currentUser:hover span{
+    display: block !important;
+}
