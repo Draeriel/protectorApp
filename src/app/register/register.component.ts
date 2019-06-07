@@ -40,6 +40,9 @@ export class RegisterComponent {
       this.firebaseService.updateUser(res.user.uid, {
         type: this.registerForm.get('type').value,
         id: res.user.uid});
+        localStorage.setItem('user', JSON.stringify({
+          type: this.registerForm.get('type').value,
+          id: res.user.uid}));
       this.registerForm.get('type').value === 'protector' ?
        this.router.navigate(['/protectora/perfil-protectora']) :
        this.router.navigate(['/voluntario/perfil-voluntario']);
@@ -53,6 +56,9 @@ export class RegisterComponent {
       this.firebaseService.updateUser(res.user.uid, {
         type: this.registerForm.get('type').value,
         id: res.user.uid});
+        localStorage.setItem('user', JSON.stringify({
+          type: this.registerForm.get('type').value,
+          id: res.user.uid}));
       this.registerForm.get('type').value === 'protector' ?
       this.router.navigate(['/protectora/perfil-protectora']) :
       this.router.navigate(['/voluntario/perfil-voluntario']);
@@ -68,6 +74,10 @@ export class RegisterComponent {
        this.firebaseService.updateUser(res.user.uid, {
          type: this.registerForm.get('type').value,
          id: res.user.uid});
+        localStorage.setItem('user', JSON.stringify({
+          type: this.registerForm.get('type').value,
+          id: res.user.uid}));
+
        this.registerForm.get('type').value === 'protector' ?
        this.router.navigate(['/protectora/perfil-protectora']) :
        this.router.navigate(['/voluntario/perfil-voluntario']);

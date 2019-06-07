@@ -17,6 +17,7 @@ import { HomeComponent } from './shared/home/home.component';
 import { ProtectoraVolunteersComponent } from './protectora/protectora-volunteers/protectora-volunteers.component';
 import { VolunteerSidenavComponent } from './volunteer/volunteer-sidenav/volunteer-sidenav.component';
 import { VolunteerProtectorasComponent } from './volunteer/volunteer-protectoras/volunteer-protectoras.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'access', component: AccessComponent, canActivate: [AuthGuard] },
   { path: 'inicio', component: HomeComponent},
   { path: `perfil/:id`, component: ProtectoraPublicProfileComponent},
+  { path: `mensajes/:id`, component: MessagesComponent},
   // { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   // { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'protectora', component: ProtectoraSidenavComponent, resolve: { data: UserResolver}, children: [

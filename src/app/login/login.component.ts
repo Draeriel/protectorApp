@@ -32,6 +32,7 @@ export class LoginComponent {
   tryFacebookLogin() {
     this.authService.doFacebookLogin().then(res => {
       this.firebaseService.getUser(res.user.uid).subscribe(user => {
+        localStorage.setItem('user', JSON.stringify(user));
         user.type === 'protector'
         ? this.router.navigate(['/protectora/perfil-protectora'])
         : this.router.navigate(['/voluntario/perfil-voluntario']);
@@ -42,6 +43,7 @@ export class LoginComponent {
   tryGoogleLogin() {
     this.authService.doGoogleLogin().then(res => {
       this.firebaseService.getUser(res.user.uid).subscribe(user => {
+        localStorage.setItem('user', JSON.stringify(user));
         user.type === 'protector'
         ? this.router.navigate(['/protectora/perfil-protectora'])
         : this.router.navigate(['/voluntario/perfil-voluntario']);
@@ -53,7 +55,8 @@ export class LoginComponent {
     this.authService.doLogin(value).then(
       res => {
         this.firebaseService.getUser(res.user.uid).subscribe(user => {
-        user.type === 'protector'
+          localStorage.setItem('user', JSON.stringify(user));
+          user.type === 'protector'
         ? this.router.navigate(['/protectora/perfil-protectora'])
         : this.router.navigate(['/voluntario/perfil-voluntario']);
       },

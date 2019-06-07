@@ -71,4 +71,12 @@ export class FirebaseService {
   getPublicationsComments(publicationId) {
     return this.db.collection('publications').doc(publicationId).collection('comments').valueChanges();
   }
+
+  getMessagesWithUser(userId, receptorId) {
+    return this.db.collection('users').doc(userId).collection('messages').doc(receptorId).valueChanges();
+  }
+
+  postMessagesIdWithUser(userId, receptorId, messagesId) {
+    return this.db.collection('users').doc(userId).collection('messages').doc(receptorId).set(messagesId);
+  }
 }
