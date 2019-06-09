@@ -24,9 +24,8 @@ import { MessagesListComponent } from './messages/messages-list/messages-list.co
 const routes: Routes = [
   { path: '', redirectTo: 'access', pathMatch: 'full' },
   { path: 'access', component: AccessComponent, canActivate: [AuthGuard] },
-  { path: 'inicio', component: HomeComponent},
+  //{ path: 'inicio', component: HomeComponent},
   { path: `perfil/:id`, component: ProtectoraPublicProfileComponent},
-  { path: `mensajes/:id`, component: MessagesComponent},
   // { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   // { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'protectora', component: ProtectoraSidenavComponent, resolve: { data: UserResolver}, children: [
@@ -38,12 +37,16 @@ const routes: Routes = [
     { path: `voluntarios`, component: ProtectoraVolunteersComponent, resolve: { data: UserResolver}},
     { path: 'protectoras', component: VolunteerProtectorasComponent, resolve: { data: UserResolver}},
     { path: 'listado-mensajes', component: MessagesListComponent, resolve: { data: UserResolver}},
-    { path: `mensajes/:id`, component: MessagesComponent, resolve: { data: UserResolver}}
+    { path: `mensajes/:id`, component: MessagesComponent, resolve: { data: UserResolver}},
+    { path: 'inicio', component: HomeComponent, resolve: { data: UserResolver}},
   ]},
   { path: 'voluntario', component: VolunteerSidenavComponent, resolve: { data: VolunteerResolver}, children: [
     { path: 'perfil-voluntario', component: VolunteerProfileComponent, resolve: { data: VolunteerResolver}},
     { path: 'protectoras', component: VolunteerProtectorasComponent, resolve: { data: VolunteerResolver}},
-    { path: `perfil/:id`, component: ProtectoraPublicProfileComponent, resolve: { data: VolunteerResolver}}
+    { path: `perfil/:id`, component: ProtectoraPublicProfileComponent, resolve: { data: VolunteerResolver}},
+    { path: 'listado-mensajes', component: MessagesListComponent, resolve: { data: VolunteerResolver}},
+    { path: `mensajes/:id`, component: MessagesComponent, resolve: { data: VolunteerResolver}},
+    { path: 'inicio', component: HomeComponent, resolve: { data: VolunteerResolver}},
   ]}
 ];
 

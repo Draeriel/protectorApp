@@ -9,6 +9,7 @@ import { FirebaseService } from '../../services/firebase.service';
 export class MessagesListComponent implements OnInit {
 
   userId = '';
+  userType = '';
   messagesList = [];
   receptorsList = [];
   constructor(
@@ -17,8 +18,10 @@ export class MessagesListComponent implements OnInit {
 
   ngOnInit() {
     this.userId = JSON.parse(localStorage.getItem('user')).id;
+    this.userType = JSON.parse(localStorage.getItem('user')).type;
     this.firebaseService.getUserMessages(this.userId).subscribe( messages => {
       this.messagesList = messages;
+      console.log(messages);
       this.setReceptorsList();
     })
   }
@@ -26,6 +29,7 @@ export class MessagesListComponent implements OnInit {
   setReceptorsList() {
     this.receptorsList = [];
     this.messagesList.forEach(message => {
+      console.log(message);
       this.firebaseService.getUser(message.receptorId).subscribe( user => {
         this.receptorsList.push(user);
       });

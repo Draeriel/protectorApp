@@ -9,22 +9,31 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  user = null;
+
   constructor(
     public authService: AuthService,
     public router: Router
-  ) { }
+  ) {
+    router.events.subscribe((val) => {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  });
+   }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   goToHome() {
-    this.router.navigate(['/inicio']);
+    const type = this.user.type === 'volunteer' ? 'voluntario' : 'protectora';
+    this.router.navigate([`${type}/inicio`]);
   }
 
   logOut() {
     console.log('signout');
     this.authService.doLogout().then(() => {
       this.router.navigate(['']);
+      this.user = null;
    });
   }
 
