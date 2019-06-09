@@ -47,6 +47,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { VolunteerSidenavComponent } from './volunteer/volunteer-sidenav/volunteer-sidenav.component';
 import { VolunteerProtectorasComponent } from './volunteer/volunteer-protectoras/volunteer-protectoras.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MessagesListComponent } from './messages/messages-list/messages-list.component';
 
 
 
@@ -74,7 +75,8 @@ import { MessagesComponent } from './messages/messages.component';
     CommentsComponent,
     VolunteerSidenavComponent,
     VolunteerProtectorasComponent,
-    MessagesComponent],
+    MessagesComponent,
+    MessagesListComponent],
   imports: [
     NgbModule,
     BrowserAnimationsModule,

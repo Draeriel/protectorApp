@@ -1,0 +1,10 @@
+<div *ngFor="let receptor of receptorsList">
+  <div *ngIf="receptor.type === 'volunteer'" [routerLink]="['/mensajes/', receptor.id]">
+    {{receptor.name}} {{receptor.surname}}
+  </div>
+
+  <ng-container *ngIf="receptor.type === 'protector'">
+      {{receptor.protectoraName}}
+    </ng-container>
+  
+</div>

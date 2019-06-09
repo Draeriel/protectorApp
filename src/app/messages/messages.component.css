@@ -1,17 +1,17 @@
 .currentUser {
-    background-color: rgba(127, 199, 247, 0.534);
-    border: rgb(127, 199, 247) 1px solid; 
+    background-color: rgba(3, 248, 3, 0.534);
+    border: rgb(3, 248, 3) 1px solid;
     padding: 1px;;
-    margin-left: 25vw;
-    margin-right: 15vw;
+    margin-left: 30vw;
+    margin-right: 25vw;
     position: relative;
 }
 .otherUser {
-    background-color: rgba(3, 248, 3, 0.534);
-    border: rgb(3, 248, 3) 1px solid;
+    background-color: rgba(127, 199, 247, 0.534);
+    border: rgb(127, 199, 247) 1px solid; 
     padding: 1px;
-    margin-right: 25vw;
-    margin-left: 15vw;
+    margin-right: 30vw;
+    margin-left: 25vw;
     position: relative;
 }
 .top {
@@ -26,14 +26,19 @@
 }
 .otherUserDate {
     float: left;
-    margin-left: -50px;
+    margin-left: -250px;
 }
 
 .currentUserDate {
     float: right;
-    margin-right: -50px;
+    margin-right: -250px;
 }
 
 .otherUser:hover span, .currentUser:hover span{
     display: block !important;
+}
+
+.message-image {
+    max-width: 100%;
+    max-height: auto;
 }

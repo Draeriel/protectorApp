@@ -1,14 +1,26 @@
 <h1 style="text-align: center">{{otherUser}}</h1>
 <div class="messageContainer" *ngFor="let message of messages | async">
   <div class="top" [ngClass]="{'currentUser': message?.userId === userId, 'otherUser': message?.userId !== userId}">
-    {{message.message}} 
-    <span class="date" 
+    <ng-container *ngIf="message.message">{{message.message}}</ng-container>
+    <ng-container *ngIf="message.file">
+      <a *ngIf="message.type === 'image'" [href]="message.file" target="_blank">
+        <img [src]="message.file" class="message-image" />
+      </a>
+      <a *ngIf="message.type !== 'image'" [href]="message.file" target="_blank">
+        Click para abrir el archivo en una nueva pestaña
+      </a>
+
+    </ng-container>
+    <span class="date"
       [ngClass]="{'currentUserDate': message?.userId === userId, 'otherUserDate': message?.userId !== userId}">
       {{formatTimestamp(message.timestamp)}}
     </span>
   </div>
 </div>
 
-<input type="text" id="message" #message placeholder="Escribe tu mensaje">
-
-<button (click)="newMessage(message)">Enviar</button>
+<div class="text-center top row" style="margin-left: 22vw; margin-right: 12vw; position: relative">
+  <textarea type="text" class="col-10" #message placeholder="Escribe tu mensaje"></textarea>
+  <button (click)="newMessage(message)" class="col-2 main-button align-bottom"
+    style="height: 55%; position: absolute; right: 0;bottom: 0;">Enviar</button>
+  <input type='file' id="file" (change)="uploadFile($event)">
+</div>

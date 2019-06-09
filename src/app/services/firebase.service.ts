@@ -79,4 +79,8 @@ export class FirebaseService {
   postMessagesIdWithUser(userId, receptorId, messagesId) {
     return this.db.collection('users').doc(userId).collection('messages').doc(receptorId).set(messagesId);
   }
+
+  getUserMessages(userId) {
+    return this.db.collection('users').doc(userId).collection('messages').valueChanges();
+  }
 }

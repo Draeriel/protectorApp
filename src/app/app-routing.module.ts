@@ -18,6 +18,7 @@ import { ProtectoraVolunteersComponent } from './protectora/protectora-volunteer
 import { VolunteerSidenavComponent } from './volunteer/volunteer-sidenav/volunteer-sidenav.component';
 import { VolunteerProtectorasComponent } from './volunteer/volunteer-protectoras/volunteer-protectoras.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MessagesListComponent } from './messages/messages-list/messages-list.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,9 @@ const routes: Routes = [
     { path: 'nueva-publicacion', component: ProtectoraCreatePublicationComponent, resolve: { data: UserResolver}},
     { path: `perfil/:id`, component: ProtectoraPublicProfileComponent, resolve: { data: UserResolver}},
     { path: `voluntarios`, component: ProtectoraVolunteersComponent, resolve: { data: UserResolver}},
+    { path: 'protectoras', component: VolunteerProtectorasComponent, resolve: { data: UserResolver}},
+    { path: 'listado-mensajes', component: MessagesListComponent, resolve: { data: UserResolver}},
+    { path: `mensajes/:id`, component: MessagesComponent, resolve: { data: UserResolver}}
   ]},
   { path: 'voluntario', component: VolunteerSidenavComponent, resolve: { data: VolunteerResolver}, children: [
     { path: 'perfil-voluntario', component: VolunteerProfileComponent, resolve: { data: VolunteerResolver}},
