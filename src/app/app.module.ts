@@ -48,6 +48,7 @@ import { VolunteerSidenavComponent } from './volunteer/volunteer-sidenav/volunte
 import { VolunteerProtectorasComponent } from './volunteer/volunteer-protectoras/volunteer-protectoras.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesListComponent } from './messages/messages-list/messages-list.component';
+import { AdoptionFormComponent } from './adoption-form/adoption-form.component';
 
 
 
@@ -76,7 +77,8 @@ import { MessagesListComponent } from './messages/messages-list/messages-list.co
     VolunteerSidenavComponent,
     VolunteerProtectorasComponent,
     MessagesComponent,
-    MessagesListComponent],
+    MessagesListComponent,
+    AdoptionFormComponent],
   imports: [
     NgbModule,
     BrowserAnimationsModule,

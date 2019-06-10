@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 export class VolunteerProtectorasComponent implements OnInit {
 
   protectoras = [];
+  userType = '';
   constructor(private firebaseService: FirebaseService,
     public storage: AngularFireStorage,
     private router: Router) { }
 
   ngOnInit() {
+    this.userType = JSON.parse(localStorage.getItem('user')).type;
     this.firebaseService.getProtectors().subscribe(protectoras => {
       this.protectoras = protectoras;
       this.protectoras.map( protectora => {

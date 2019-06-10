@@ -37,7 +37,7 @@ export class ProtectoraPublicProfileComponent implements OnInit {
   getUserPublications() {
     this.firebaseService.getCommentsByUser(this.profileId).subscribe( publications => {
       publications.forEach(publication => {
-        this.storage.storage.ref(publication.image).getDownloadURL().then( img => {
+        this.storage.storage.ref(publication['image']).getDownloadURL().then( img => {
           const currentPublication = publication;
           currentPublication['image'] = img;
           this.publications.push(currentPublication);

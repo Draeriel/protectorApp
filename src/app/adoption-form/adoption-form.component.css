@@ -1,0 +1,6 @@
+textarea {
+    width: 50vw;
+}
+div + div {
+    margin-top: 15px;
+}

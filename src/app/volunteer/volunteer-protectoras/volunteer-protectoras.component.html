@@ -11,7 +11,8 @@
       <span class="row"><strong>Dirección: </strong>{{formatedAddress(protectora)}}</span>
       <span class="row"><strong>Teléfono: </strong>{{protectora.contactPhone}}</span>
       <span class="row"><strong>E-mail: </strong>{{protectora.contactEmail}}</span>
-      <button class="main-button" [routerLink]="['/mensajes', protectora.id]"> Enviar mensaje</button>
+      <button *ngIf="userType === 'protector'" class="main-button" [routerLink]="['/protectora/mensajes', protectora.id]"> Enviar mensaje</button>
+      <button *ngIf="userType === 'volunteer'" class="main-button" [routerLink]="['/voluntario/mensajes', protectora.id]"> Enviar mensaje</button>
     </div>
   </ng-container>
   </div>

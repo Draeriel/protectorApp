@@ -2,16 +2,16 @@
     background-color: rgba(3, 248, 3, 0.534);
     border: rgb(3, 248, 3) 1px solid;
     padding: 1px;;
-    margin-left: 30vw;
-    margin-right: 25vw;
+    margin-left:10vw;
+    margin-right: 15vw;
     position: relative;
 }
 .otherUser {
     background-color: rgba(127, 199, 247, 0.534);
     border: rgb(127, 199, 247) 1px solid; 
     padding: 1px;
-    margin-right: 30vw;
-    margin-left: 25vw;
+    margin-right: 10vw;
+    margin-left: 15vw;
     position: relative;
 }
 .top {

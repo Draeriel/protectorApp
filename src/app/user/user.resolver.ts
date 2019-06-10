@@ -28,12 +28,12 @@ export class UserResolver implements Resolve<FirebaseUserModel> {
             if (type === 'protector') {
               return resolve(user);
             } else {
-              this.router.navigate(['/login']);
+              this.router.navigate(['/access']);
               return reject(user);
             }
           }, 1000);
       }, err => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/access']);
         return reject(err);
       });
     });

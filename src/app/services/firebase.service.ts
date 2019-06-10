@@ -83,4 +83,15 @@ export class FirebaseService {
   getUserMessages(userId) {
     return this.db.collection('users').doc(userId).collection('messages').valueChanges();
   }
+
+  getLastMessageWithUser(userId, receptorId) {
+    return this.db.collection('users').doc(userId).collection('messages').doc(receptorId).valueChanges();
+  }
+
+  getQuestionnaire(userKey): Observable<any> {
+    return this.db.collection('questionnaires').doc(userKey).valueChanges();
+  }
+  postUserQuestionnaire(userId, questionnaire) {
+    return this.db.collection('questionnaires').doc(userId).set(questionnaire);
+  }
 }

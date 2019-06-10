@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-messages-list',
@@ -13,7 +15,9 @@ export class MessagesListComponent implements OnInit {
   messagesList = [];
   receptorsList = [];
   constructor(
-    private firebaseService: FirebaseService
+    private firebaseService: FirebaseService,
+    private storage: AngularFireStorage,
+    private afdb: AngularFireDatabase
   ) { }
 
   ngOnInit() {
@@ -29,10 +33,33 @@ export class MessagesListComponent implements OnInit {
   setReceptorsList() {
     this.receptorsList = [];
     this.messagesList.forEach(message => {
-      console.log(message);
+      console.log(this.afdb.list(`messages/${message.messagesId}`, ref => {
+        console.log(ref.limitToLast(1));
+        return ref.limitToLast(1);
+      }));
       this.firebaseService.getUser(message.receptorId).subscribe( user => {
-        this.receptorsList.push(user);
+        this.setAvatar(user);
       });
     });
+  }
+
+  setAvatar(user) {
+    const id = user.id;
+    this.storage.storage
+        .ref(`images/${id}/profile-${id}`)
+        .getDownloadURL()
+        .then(img => {
+          user.avatar = img;
+          this.receptorsList.push(user);
+        }).catch( () => {
+          this.storage.storage
+        .ref(`images/`)
+        .child(`default-${user.type}.jpg`)
+        .getDownloadURL()
+        .then(img => {
+          user.avatar = img;
+          this.receptorsList.push(user);
+        });
+        });
   }
 }

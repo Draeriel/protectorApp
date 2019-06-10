@@ -19,6 +19,7 @@ import { VolunteerSidenavComponent } from './volunteer/volunteer-sidenav/volunte
 import { VolunteerProtectorasComponent } from './volunteer/volunteer-protectoras/volunteer-protectoras.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessagesListComponent } from './messages/messages-list/messages-list.component';
+import { AdoptionFormComponent } from './adoption-form/adoption-form.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
     { path: 'listado-mensajes', component: MessagesListComponent, resolve: { data: UserResolver}},
     { path: `mensajes/:id`, component: MessagesComponent, resolve: { data: UserResolver}},
     { path: 'inicio', component: HomeComponent, resolve: { data: UserResolver}},
+    { path: 'cuestionario-adopcion/:id', component: AdoptionFormComponent, resolve: { data: UserResolver}}
   ]},
   { path: 'voluntario', component: VolunteerSidenavComponent, resolve: { data: VolunteerResolver}, children: [
     { path: 'perfil-voluntario', component: VolunteerProfileComponent, resolve: { data: VolunteerResolver}},
@@ -47,6 +49,7 @@ const routes: Routes = [
     { path: 'listado-mensajes', component: MessagesListComponent, resolve: { data: VolunteerResolver}},
     { path: `mensajes/:id`, component: MessagesComponent, resolve: { data: VolunteerResolver}},
     { path: 'inicio', component: HomeComponent, resolve: { data: VolunteerResolver}},
+    { path: 'cuestionario-adopcion', component: AdoptionFormComponent, resolve: { data: VolunteerResolver}}
   ]}
 ];
 

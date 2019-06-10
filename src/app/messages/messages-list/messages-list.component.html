@@ -1,17 +1,28 @@
-<div *ngFor="let receptor of receptorsList" style="min-height: 100vh">
-  <ng-container *ngIf="userType === 'protector'">
-    <div *ngIf="receptor.type === 'volunteer'" [routerLink]="['/protectora/mensajes/', receptor.id]">
-      {{receptor.name}} {{receptor.surname}}
+<div style="min-height: 100vh">
+<div *ngFor="let receptor of receptorsList"  class="row" >
+  <ng-container *ngIf="receptor.avatar" class="top">
+    <div class="col-3" [routerLink]="['/protectora/mensajes/', receptor.id]" *ngIf="userType === 'protector'">
+      <img class="avatar" [src]="receptor.avatar" />
+          <div *ngIf="receptor.type === 'volunteer'">
+            {{receptor.name}} {{receptor.surname}}
+          </div>   
+          <div *ngIf="receptor.type === 'protector'" >
+            {{receptor.protectoraName}}
+          </div>    
     </div>
 
-    <div *ngIf="receptor.type === 'protector'" [routerLink]="['/protectora/mensajes/', receptor.id]">
-      {{receptor.protectoraName}}
+    <div class="col-3" [routerLink]="['/voluntario/mensajes/', receptor.id]" *ngIf="userType === 'volunteer'">
+      <img class="avatar" [src]="receptor.avatar" />
+          <div *ngIf="receptor.type === 'protector'" [routerLink]="['/voluntario/mensajes/', receptor.id]">
+            {{receptor.protectoraName}}
+          </div>
     </div>
+
+    <div class="col-9">
+      
+    </div>
+    
+    
   </ng-container>
-
-  <ng-container *ngIf="userType === 'volunteer'">
-      <div *ngIf="receptor.type === 'protector'" [routerLink]="['/voluntario/mensajes/', receptor.id]">
-        {{receptor.protectoraName}}
-      </div>
-    </ng-container>
+</div>
 </div>

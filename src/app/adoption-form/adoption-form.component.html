@@ -1,0 +1,87 @@
+<form [formGroup]="adoptionForm" class="form-group container row" style="background-color: whitesmoke">
+
+  <div class="col-9 text-center">
+    <h6>Estancia definitiva en España? Piensas en posible traslado?</h6>
+    <textarea formControlName="mudanzaExtranjero"></textarea>
+  </div>
+
+  <div class="col-9 text-center">
+    <h6>Tipo de vivienda: Piso, chalet…</h6>
+    <textarea formControlName="houseType"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>Metros cuadrados:</h6>
+    <textarea formControlName="meters"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>En caso de tener TERRAZA/BALCÓN, Abierta, m2, Para Gatos: Mosquiteras instaladas</h6>
+    <textarea formControlName="balcon"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>En caso de tener PARCELA/PATIO
+      Vallado? Altura de la valla:</h6>
+    <textarea formControlName="park"></textarea>
+  </div>
+
+  <div class="col-9 text-center">
+    <h6>El animal convivirá con la familia dentro de la casa?</h6>
+    <textarea formControlName="petWithFamily"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>¿Qué lugar de la vivienda estaría destinado al animal?</h6>
+    <textarea formControlName="livingPlaces"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>¿A que lugar tendría el acceso prohibido? Por qué?</h6>
+    <textarea formControlName="forbiddenPlaces"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>¿En que lugar dormiría?: dentro de la casa, caseta, garaje, otras zonas habilitadas, descríbenos donde dormiría
+    </h6>
+    <textarea formControlName="sleepingPlaces"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>En caso de que viva de alquiler, está de acuerdo con la entrada de un animal su casero?</h6>
+    <textarea formControlName="caseroAllows"></textarea>
+  </div>
+
+  <div class="col-9 text-center">
+    <h6>Cuantas personas habitáis la casa:</h6>
+    <textarea formControlName="peopleAmount"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>Nº de hijos y edades:</h6>
+    <textarea formControlName="ages"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>Estáis todos de acuerdo en la adopción:</h6>
+    <textarea formControlName="allAgreement"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>Hay mas animales en casa? Cuéntanos cuantos y cuales, su especie, su raza, su edad..</h6>
+    <textarea formControlName="morePets"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>Has / Habéis tenido perro/gato antes? Qué tal con él, tuviste problemas? Cuales?</h6>
+    <textarea formControlName="pastPetsExperiences"></textarea>
+  </div>
+
+  <div class="col-9 text-center">
+    <h6>Cuánto tiempo al día estáis fuera de casa? Es decir cuantas horas se quedaría solo el perro/gato en casa:</h6>
+    <textarea formControlName="outsideTime"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>En caso de ser perro, cuantas veces saldría a la calle y duración?</h6>
+    <textarea formControlName="dogWalks"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>Tienes/ tenéis tiempo “extra” los fines de semana para él?</h6>
+    <textarea formControlName="extraPetTime"></textarea>
+  </div>
+  <div class="col-9 text-center">
+    <h6>En vacaciones (Semana Santa, Navidad, verano, puentes...) Qué harás / haréis con él?</h6>
+    <textarea formControlName="hollydays"></textarea>
+  </div>
+
+  <button type="submit" (click)="updateQuestionnair()" class="btn main-button">Guardar datos</button>
+</form>

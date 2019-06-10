@@ -17,7 +17,12 @@ export class AuthGuard implements CanActivate {
     return new Promise((resolve, reject) => {
       this.userService.getCurrentUser()
       .then(user => {
-        this.router.navigate(['/user']);
+        const userType = JSON.parse(localStorage.getItem('user')).type;
+        if (userType === 'protector') {
+          this.router.navigate(['/protectora/perfil-protectora']);
+        } else if (userType === 'volunteer') {
+          this.router.navigate(['/voluntario/perfil-voluntario']);
+        }
         return resolve(false);
       }, err => {
         return resolve(true);

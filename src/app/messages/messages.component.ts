@@ -10,7 +10,6 @@ import { User } from "../core/user.model";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { FirebaseService } from "../services/firebase.service";
 import * as firebase from "firebase";
-import { constants } from "fs";
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
